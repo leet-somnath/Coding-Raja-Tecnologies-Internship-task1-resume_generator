@@ -221,8 +221,6 @@ function previewImage(){
         imageDsp.src = ofEvent.target.result;
     }
 }
-// Check if a color is stored in localStorage
-
 
 // print CV
 function printCV(){

@@ -6,22 +6,8 @@
         <title>Resume Page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <!-- custom css -->
         <link rel="stylesheet" href="assets/css/main.css">
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-
-                const storedColor = localStorage.getItem('resumeColor');
-        
-              
-                if (storedColor) {
-                    const choiceElement = document.getElementById('choice');
-                    choiceElement.style.backgroundColor = storedColor;
-                }
-            });
-        </script>
-       
-        
     </head>
     <body>
         <nav class = "navbar bg-white">
@@ -38,15 +24,16 @@
             </div>
         </nav>
 
-        <section id = "about-sc" class = "x" >
+
+        <section id = "about-sc" class = "">
             <div class = "container">
                 <div class = "about-cnt">
                     <form action="" class="cv-form" id = "cv-form">
                         <div class = "cv-form-blk">
                             <div class = "cv-form-row-title">
-                                <h3 >about section</h3>
-                            </div >
-                            <div  style=" border: 1px solid black; border-radius: 20px;" class = "cv-form-row cv-form-row-about">
+                                <h3>about section</h3>
+                            </div>
+                            <div class = "cv-form-row cv-form-row-about">
                                 <div class = "cols-3">
                                     <div class = "form-elem">
                                         <label for = "" class = "form-label">First Name</label>
@@ -65,12 +52,16 @@
                                     </div>
                                 </div>
 
-                                <div class="cols-2">
+                                <div class="cols-3">
                                     <div class = "form-elem">
                                         <label for = "" class = "form-label">Your Image</label>
                                         <input name = "image" type = "file" class = "form-control image" id = "" accept = "image/*" onchange="previewImage()">
                                     </div>
-                                  
+                                    <div class = "form-elem">
+                                        <label for = "" class = "form-label">Designation</label>
+                                        <input name = "designation" type = "text" class = "form-control designation" id = "" onkeyup="generateCV()" placeholder="e.g. Sr.Accountants">
+                                        <span class="form-text"></span>
+                                    </div>
                                     <div class = "form-elem">
                                         <label for = "" class = "form-label">Address</label>
                                         <input name = "address" type = "text" class = "form-control address" id = "" onkeyup="generateCV()" placeholder="e.g. Lake Street-23">
@@ -110,12 +101,12 @@
                                             <div class = "cols-2">
                                                 <div class = "form-elem">
                                                     <label for = "" class = "form-label">Title</label>
-                                                    <input name = "achieve_title" type = "text" class = "form-control achieve_title" id = "" onkeyup="generateCV()" placeholder="HACKATHON">
+                                                    <input name = "achieve_title" type = "text" class = "form-control achieve_title" id = "" onkeyup="generateCV()" placeholder="e.g. johndoe@gmail.com">
                                                     <span class="form-text"></span>
                                                 </div>
                                                 <div class = "form-elem">
                                                     <label for = "" class = "form-label">Description</label>
-                                                    <input name = "achieve_description" type = "text" class = "form-control achieve_description" id = "" onkeyup="generateCV()" >
+                                                    <input name = "achieve_description" type = "text" class = "form-control achieve_description" id = "" onkeyup="generateCV()" placeholder="e.g. johndoe@gmail.com">
                                                     <span class="form-text"></span>
                                                 </div>
                                             </div>
@@ -132,7 +123,7 @@
                                 <h3>experience</h3>
                             </div>
 
-                            <div style=" border: 1px solid black; border-radius: 20px;" class = "row-separator repeater">
+                            <div class = "row-separator repeater">
                                 <div class = "repeater" data-repeater-list = "group-b">
                                     <div data-repeater-item>
                                         <div class = "cv-form-row cv-form-row-experience">
@@ -185,7 +176,7 @@
                                 <h3>education</h3>
                             </div>
 
-                            <div style=" border: 1px solid black; border-radius: 20px;" class = "row-separator repeater">
+                            <div class = "row-separator repeater">
                                 <div class = "repeater" data-repeater-list = "group-c">
                                     <div data-repeater-item>
                                         <div class = "cv-form-row cv-form-row-experience">
@@ -272,7 +263,7 @@
                                 <h3>skills</h3>
                             </div>
 
-                            <div style=" border: 1px solid black; border-radius: 20px;" class = "row-separator repeater">
+                            <div class = "row-separator repeater">
                                 <div class = "repeater" data-repeater-list = "group-e">
                                     <div data-repeater-item>
                                         <div class = "cv-form-row cv-form-row-skills">
@@ -293,11 +284,11 @@
                 </div>
             </div>
         </section>
-<h1 style="padding:  20PX;margin-left: 550PX;">CHECK-OUT RESUME HERE</h1>
+
         <section id = "preview-sc" class = "print_area">
             <div class = "container">
                 <div class = "preview-cnt">
-                    <div class = "preview-cnt-l bg-green text-white" id="choice">
+                    <div class = "preview-cnt-l bg-green text-white">
                         <div class = "preview-blk">
                             <div class = "preview-image">
                                 <img src = "" alt = "" id = "image_dsp"> 
@@ -310,7 +301,7 @@
                             </div>
                         </div>
 
-                        <div class = "preview-blk" id="from">
+                        <div class = "preview-blk">
                             <div class = "preview-blk-title">
                                 <h3>about</h3>
                             </div>
@@ -340,8 +331,7 @@
                         </div>
                     </div>
 
-                    <div class="preview-cnt-r bg-white" id="ewr">
-
+                    <div class = "preview-cnt-r bg-white">
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
                                 <h3>Achievements</h3>
@@ -374,7 +364,7 @@
             </div>
         </section>
 
-        <section style="margin-left: 700PX;" class = "print-btn-sc">
+        <section class = "print-btn-sc">
             <div class = "container">
                 <button type = "button" class = "print-btn btn btn-primary" onclick="printCV()">Print CV</button>
             </div>
