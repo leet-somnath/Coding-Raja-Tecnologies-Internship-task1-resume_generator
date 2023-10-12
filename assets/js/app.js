@@ -1,5 +1,5 @@
-// regex for validation
-const strRegex =  /^[a-zA-Z\s]*$/; 
+
+const strRegex =  /^[a-zA-Z\s]*$/; // containing only letters
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
@@ -51,7 +51,7 @@ const fetchValues = (attrs, ...nodeLists) => {
         let dataObj = {}; 
         
         for(let j = 0; j < elemsAttrsCount; j++){
-            
+        
             dataObj[`${attrs[j]}`] = nodeLists[j][i].value;
         }
         tempDataArr.push(dataObj);
@@ -62,11 +62,11 @@ const fetchValues = (attrs, ...nodeLists) => {
 
 const getUserInputs = () => {
 
-    
+    // achivements 
     let achievementsTitleElem = document.querySelectorAll('.achieve_title'),
     achievementsDescriptionElem = document.querySelectorAll('.achieve_description');
 
-}
+    // experiences
     let expTitleElem = document.querySelectorAll('.exp_title'),
     expOrganizationElem = document.querySelectorAll('.exp_organization'),
     expLocationElem = document.querySelectorAll('.exp_location'),
@@ -74,7 +74,7 @@ const getUserInputs = () => {
     expEndDateElem = document.querySelectorAll('.exp_end_date'),
     expDescriptionElem = document.querySelectorAll('.exp_description');
 
-    
+    // education
     let eduSchoolElem = document.querySelectorAll('.edu_school'),
     eduDegreeElem = document.querySelectorAll('.edu_degree'),
     eduCityElem = document.querySelectorAll('.edu_city'),
@@ -88,7 +88,7 @@ const getUserInputs = () => {
 
     let skillElem = document.querySelectorAll('.skill');
 
-    
+    // event listeners for form validation
     firstnameElem.addEventListener('keyup', (e) => validateFormData(e.target, validType.TEXT, 'First Name'));
     middlenameElem.addEventListener('keyup', (e) => validateFormData(e.target, validType.TEXT_EMP, 'Middle Name'));
     lastnameElem.addEventListener('keyup', (e) => validateFormData(e.target, validType.TEXT, 'Last Name'));
@@ -134,31 +134,31 @@ const getUserInputs = () => {
 };
 
 function validateFormData(elem, elemType, elemName){
-    
+ 
     if(elemType == validType.TEXT){
         if(!strRegex.test(elem.value) || elem.value.trim().length == 0) addErrMsg(elem, elemName);
         else removeErrMsg(elem);
     }
 
-    
+   
     if(elemType == validType.TEXT_EMP){
         if(!strRegex.test(elem.value)) addErrMsg(elem, elemName);
         else removeErrMsg(elem);
     }
 
-
+    
     if(elemType == validType.EMAIL){
         if(!emailRegex.test(elem.value) || elem.value.trim().length == 0) addErrMsg(elem, elemName);
         else removeErrMsg(elem);
     }
 
-    
+    // checking for phone number
     if(elemType == validType.PHONENO){
         if(!phoneRegex.test(elem.value) || elem.value.trim().length == 0) addErrMsg(elem, elemName);
         else removeErrMsg(elem);
     }
 
-  
+    // checking for only empty
     if(elemType == validType.ANY){
         if(elem.value.trim().length == 0) addErrMsg(elem, elemName);
         else removeErrMsg(elem);
@@ -170,12 +170,12 @@ function addErrMsg(formElem, formElemName){
     formElem.nextElementSibling.innerHTML = `${formElemName} is invalid`;
 }
 
-
+// removing the invalid text 
 function removeErrMsg(formElem){
     formElem.nextElementSibling.innerHTML = "";
 }
 
-
+// show the list data
 const showListData = (listData, listContainer) => {
     listContainer.innerHTML = "";
     listData.forEach(listItem => {
